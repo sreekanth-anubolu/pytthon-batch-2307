@@ -5,7 +5,7 @@ import psycopg2
 class PG_CONN:
 
     conn = None
-    DB_NAME = "movie_db"
+    DB_NAME = "movie_db_proj"
     DB_USER = "postgres"
     DB_PASSWORD = "Aruba@123"
     DB_HOST = "127.0.0.1"
