@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Actors</title>
+    <style>
+      table, th, td {
+        border: 1px solid;
+        border-collapse: collapse;
+      }
+    </style>
+</head>
+<body>
+  <div>
+      <h1> Add Actor </h1>
+      <form id="actor-form" method="POST" action="/actor">
+        <label for="actor-first-name">Actor First Name </label>
+        <input type="text" id="actor-first-name" name="actor-first-name" required><br>
+
+        <label for="actor-last-name">Actor Last Name </label>
+        <input type="text" id="actor-last-name" name="actor-last-name" required><br>
+
+        <label for="actor-gender">Actor Gender: </label>
+        <select id="actor-gender" name="actor-gender" required>
+          <option value="M"> Male </option>
+          <option value="F"> Female </option>
+          <option value="O"> Other </option>
+        </select><br>
+
+        <label for="actor-industry">Actor Industry: </label>
+        <select id="actor-industry" name="actor-industry" required>
+          <option value="TFI"> TFI </option>
+          <option value="KFI"> KFI </option>
+          <option value="Bollywood"> Bollywood </option>
+          <option value="Mollywood"> Mollywood </option>
+        </select><br>
+
+        <label for="actor-dob">Actor DOB: </label>
+        <input type="date" id="actor-dob" name="actor-dob" required>
+
+        <button type="submit">Submit </button>
+      </form>
+  </div>
+
+  <div>
+    {% if actors %}
+      <h1> Actors List </h1>
+      <table>
+        <thead>
+          <td> First Name </td>
+          <td> Last Name </td>
+          <td> Gender </td>
+          <td> DOB </td>
+          <td> Industry </td>
+        </thead>
+        <tbody>
+          {% for actor in actors %}
+            <tr style="border: 1px solid black;">
+              <td>{{actor.get("first_name") }}</td>
+              <td>{{actor.get("last_name") }}</td>
+              <td>{{actor.get("gender") }}</td>
+              <td>{{actor.get("dob") }}</td>
+              <td>{{actor.get("industry") }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    {% endif %}
+  </div>
+</body>
+</html>
